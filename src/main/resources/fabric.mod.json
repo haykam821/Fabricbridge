@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "fabricbridge",
+	"version": "${version}",
+
+	"name": "Fabricbridge",
+	"description": "Matterbridge support for the Minecraft client via Fabric.",
+	"authors": [
+		"haykam821"
+	],
+	"contact": {
+		"homepage": "https://github.com/haykam821/Fabricbridge#readme",
+		"issues": "https://github.com/haykam821/Fabricbridge/issues"
+	},
+
+	"license": "MIT",
+	"icon": "assets/fabricbridge/icon.png",
+
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"io.github.haykam821.fabricbridge.Main"
+		],
+		"cotton-client-commands": [
+			"io.github.haykam821.fabricbridge.Commands"
+		],
+		"modmenu": [
+			"io.github.haykam821.fabricbridge.config.ModMenuCompatibility"
+		]
+	},
+	
+	"depends": {
+		"fabricloader": ">=0.4.0",
+		"fabric": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}

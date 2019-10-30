@@ -1,0 +1,77 @@
+plugins {
+	id "fabric-loom" version "0.2.5-SNAPSHOT"
+	id "maven-publish"
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
+
+minecraft {
+}
+
+repositories {
+	maven {
+		name = "CottonMC"
+		url = "http://server.bbkr.space:8081/artifactory/libs-snapshot"
+	}
+	maven {
+		name = "Fabric"
+		url = "https://maven.fabricmc.net/"
+	}
+	maven {
+		name = "CurseForge"
+		url = "https://minecraft.curseforge.com/api/maven"
+	}
+    maven {
+		url = "http://maven.sargunv.s3-website-us-west-2.amazonaws.com/"
+	}
+	jcenter()
+}
+
+dependencies {
+	// Main
+	minecraft("com.mojang:minecraft:${project.minecraft_version}")
+	mappings("net.fabricmc:yarn:${project.yarn_mappings}")
+	modCompile("net.fabricmc:fabric-loader:${project.loader_version}")
+
+	// Fabric API
+	modCompile("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+	include("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+
+    modCompile("io.github.cottonmc:cotton-client-commands:0.4.2+1.14.3-SNAPSHOT")
+    include("io.github.cottonmc:cotton-client-commands:0.4.2+1.14.3-SNAPSHOT")
+
+	// Configuration
+    modCompile("cloth-config:ClothConfig:0.2.4.17")
+    include("cloth-config:ClothConfig:0.2.4.17")
+
+    modCompile("me.sargunvohra.mcmods:auto-config:1.2.0+mc1.14.4")
+    include("me.sargunvohra.mcmods:auto-config:1.2.0+mc1.14.4")
+	
+	modCompile("io.github.prospector:modmenu:1.7.9+build.118")
+}
+
+processResources {
+	inputs.property "version", project.version
+
+	from(sourceSets.main.resources.srcDirs) {
+		include "fabric.mod.json"
+		expand "version": project.version
+	}
+
+	from(sourceSets.main.resources.srcDirs) {
+		exclude "fabric.mod.json"
+	}
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+
+jar {
+	from "LICENSE"
+}

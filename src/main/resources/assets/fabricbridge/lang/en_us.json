@@ -1,0 +1,14 @@
+{
+	"text.autoconfig.fabricbridge.title": "Fabricbridge Configuration",
+	"text.autoconfig.fabricbridge.category.default": "Main",
+	"text.autoconfig.fabricbridge.option.apiHost": "API Host",
+	"text.autoconfig.fabricbridge.option.apiHost.@Tooltip": "The IP and port of the API.",
+	"text.autoconfig.fabricbridge.option.token": "Token",
+	"text.autoconfig.fabricbridge.option.token.@Tooltip": "The token specified in the Matterbridge config.",
+	"text.autoconfig.fabricbridge.option.gateway": "Gateway",
+	"text.autoconfig.fabricbridge.option.gateway.@Tooltip": "The gateway to send messages to.",
+	"text.autoconfig.fabricbridge.option.username": "Username",
+	"text.autoconfig.fabricbridge.option.username.@Tooltip[0]": "The username to send to the bridge.",
+	"text.autoconfig.fabricbridge.option.username.@Tooltip[1]": "Uses the in-game username if left blank."
+	
+}
