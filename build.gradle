@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.2.5-SNAPSHOT"
+	id "fabric-loom" version "0.2.6-SNAPSHOT"
 	id "maven-publish"
 }
 
@@ -36,23 +36,20 @@ dependencies {
 	// Main
 	minecraft("com.mojang:minecraft:${project.minecraft_version}")
 	mappings("net.fabricmc:yarn:${project.yarn_mappings}")
-	modCompile("net.fabricmc:fabric-loader:${project.loader_version}")
+	modImplementation("net.fabricmc:fabric-loader:${project.loader_version}")
 
 	// Fabric API
-	modCompile("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
-	include("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
+	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 
-    modCompile("io.github.cottonmc:cotton-client-commands:0.4.2+1.14.3-SNAPSHOT")
+	// Client commands
+    modImplementation("io.github.cottonmc:cotton-client-commands:0.4.2+1.14.3-SNAPSHOT")
     include("io.github.cottonmc:cotton-client-commands:0.4.2+1.14.3-SNAPSHOT")
 
 	// Configuration
-    modCompile("cloth-config:ClothConfig:0.2.4.17")
-    include("cloth-config:ClothConfig:0.2.4.17")
-
-    modCompile("me.sargunvohra.mcmods:auto-config:1.2.0+mc1.14.4")
+    modImplementation("me.sargunvohra.mcmods:auto-config:1.2.0+mc1.14.4")
     include("me.sargunvohra.mcmods:auto-config:1.2.0+mc1.14.4")
-	
-	modCompile("io.github.prospector:modmenu:1.7.9+build.118")
+
+	modImplementation("io.github.prospector:modmenu:1.7.9+build.118")
 }
 
 processResources {
