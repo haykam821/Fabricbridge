@@ -49,7 +49,7 @@ dependencies {
     modImplementation("me.sargunvohra.mcmods:auto-config:1.2.0+mc1.14.4")
     include("me.sargunvohra.mcmods:auto-config:1.2.0+mc1.14.4")
 
-	modImplementation("io.github.prospector:modmenu:1.7.9+build.118")
+	modImplementation("io.github.prospector:modmenu:1.8.0+build.16")
 }
 
 processResources {
