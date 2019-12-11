@@ -19,7 +19,7 @@ import net.minecraft.text.LiteralText;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
-import me.sargunvohra.mcmods.autoconfig1.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import io.github.haykam821.fabricbridge.config.ModConfig;
 
 public class Commands implements ClientCommandPlugin {

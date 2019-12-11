@@ -20,8 +20,8 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.LiteralText;
 
 import io.github.haykam821.fabricbridge.config.ModConfig;
-import me.sargunvohra.mcmods.autoconfig1.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1.serializer.GsonConfigSerializer;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
 
 class Message {
 	String username = "user";
