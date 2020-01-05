@@ -26,10 +26,9 @@ public class Commands implements ClientCommandPlugin {
 								String username = (config.username != null && config.username.length() > 0) ? config.username : MinecraftClient.getInstance().player.getName().asString();
 								String text = StringArgumentType.getString(context, "message");
 
-								Message message = new Message(username, text);
+								Message message = new Message(username, text, config.gateway, "fabricbridge", "minecraft");
 								message.send();
-
-								MinecraftClient.getInstance().player.sendMessage(message.getLiteralText());
+								message.sendLiteralText();
 							} catch (Exception err) {
 								context.getSource().sendError(new LiteralText("Could not send message."));
 							}

@@ -1,6 +1,11 @@
 package io.github.haykam821.fabricbridge;
 
+import net.minecraft.client.MinecraftClient;
+
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
+import net.minecraft.text.Style;
+import net.minecraft.text.HoverEvent;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,14 +26,43 @@ import io.github.haykam821.fabricbridge.config.ModConfig;
 class Message {
 	String username;
 	String text;
+	String protocol;
+	String gateway;
+	String channel;
 
-	Message(String username, String text) {
+	Message(String username, String text, String gateway, String protocol, String channel) {
 		this.username = username;
 		this.text = text;
+		this.protocol = protocol;
+		this.gateway = gateway;
+		this.channel = channel;
 	}
 
-	LiteralText getLiteralText() {
-		return new LiteralText("§9§lDISCORD §e" + this.username + " §r§f" + this.text);
+	Text getLiteralText() {
+		// Prefix
+		LiteralText prefixText = new LiteralText("§9§lDISCORD");
+		LiteralText hoverString = new LiteralText(
+			((gateway != null && gateway.length() > 0) ? "§6Gateway: §7" + gateway : "") +
+			((protocol != null && protocol.length() > 0) ? "\n§6Protocol: §7" + protocol : "") +
+			((channel != null && channel.length() > 0)? "\n§6Channel: §7" + channel : "")
+		);
+		Style style = new Style();
+		style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverString));
+		prefixText.setStyle(style);
+
+		// Username
+		LiteralText usernameText = new  LiteralText(" §e" + username);
+
+		// Text
+		LiteralText textText = new LiteralText(" §r§f" + text);
+
+		// Merge three components together
+		LiteralText fullText = new LiteralText("");
+		return fullText.append(prefixText).append(usernameText).append(textText);
+	}
+
+	void sendLiteralText() {
+		MinecraftClient.getInstance().player.sendMessage(this.getLiteralText());
 	}
 
 	HttpResponse send() throws ClientProtocolException, IOException {

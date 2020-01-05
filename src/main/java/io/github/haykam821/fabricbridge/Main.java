@@ -48,7 +48,7 @@ public class Main implements ModInitializer {
 
 					for (JsonElement item : array) {
 						Message message = gson.fromJson(item, Message.class);
-						MinecraftClient.getInstance().player.sendMessage(message.getLiteralText());
+						message.sendLiteralText();
 					}
 				} catch (Exception err) {
 					if (err instanceof HttpHostConnectException) return;
