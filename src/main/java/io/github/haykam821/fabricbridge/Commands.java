@@ -4,7 +4,7 @@ import java.util.concurrent.Executors;
 
 import io.github.cottonmc.clientcommands.*;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.TranslatableText;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
@@ -30,7 +30,7 @@ public class Commands implements ClientCommandPlugin {
 								message.send();
 								message.sendLiteralText();
 							} catch (Exception err) {
-								context.getSource().sendError(new LiteralText("Could not send message."));
+								context.getSource().sendError(new TranslatableText("commands.fabricbridge.failed"));
 							}
 						});
 						return 1;

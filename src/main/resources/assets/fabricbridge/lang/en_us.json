@@ -15,5 +15,6 @@
 	"text.autoconfig.fabricbridge.option.hoverText.@Tooltip[1]": "This includes gateway, protocol, and channel information.",
 	"fabricbridge.info.gateway": "Gateway:",
 	"fabricbridge.info.protocol": "Protocol:",
-	"fabricbridge.info.channel": "Channel:"
+	"fabricbridge.info.channel": "Channel:",
+	"commands.fabricbridge.failed": "Could not send message."
 }
