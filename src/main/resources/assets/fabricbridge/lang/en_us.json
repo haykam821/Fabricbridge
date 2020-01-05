@@ -9,6 +9,9 @@
 	"text.autoconfig.fabricbridge.option.gateway.@Tooltip": "The gateway to send messages to.",
 	"text.autoconfig.fabricbridge.option.username": "Username",
 	"text.autoconfig.fabricbridge.option.username.@Tooltip[0]": "The username to send to the bridge.",
-	"text.autoconfig.fabricbridge.option.username.@Tooltip[1]": "Uses the in-game username if left blank."
+	"text.autoconfig.fabricbridge.option.username.@Tooltip[1]": "Uses the in-game username if left blank.",
+	"text.autoconfig.fabricbridge.option.hoverText": "Show Hover Text",
+	"text.autoconfig.fabricbridge.option.hoverText.@Tooltip[0]": "Whether to show hover text.",
+	"text.autoconfig.fabricbridge.option.hoverText.@Tooltip[1]": "This includes gateway, protocol, and channel information."
 	
 }

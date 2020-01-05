@@ -17,4 +17,7 @@ public class ModConfig implements ConfigData {
 
 	@ConfigEntry.Gui.Tooltip(count = 2)
 	public String username = "";
+
+	@ConfigEntry.Gui.Tooltip(count = 2)
+	public Boolean hoverText = true;
 }

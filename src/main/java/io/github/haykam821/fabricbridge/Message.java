@@ -39,16 +39,20 @@ class Message {
 	}
 
 	Text getLiteralText() {
+		ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
+	
 		// Prefix
 		LiteralText prefixText = new LiteralText("§9§lDISCORD");
-		LiteralText hoverString = new LiteralText(
-			((gateway != null && gateway.length() > 0) ? "§6Gateway: §7" + gateway : "") +
-			((protocol != null && protocol.length() > 0) ? "\n§6Protocol: §7" + protocol : "") +
-			((channel != null && channel.length() > 0)? "\n§6Channel: §7" + channel : "")
-		);
-		Style style = new Style();
-		style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverString));
-		prefixText.setStyle(style);
+		if (config.hoverText) {
+			LiteralText hoverString = new LiteralText(
+				((gateway != null && gateway.length() > 0) ? "§6Gateway: §7" + gateway : "") +
+				((protocol != null && protocol.length() > 0) ? "\n§6Protocol: §7" + protocol : "") +
+				((channel != null && channel.length() > 0)? "\n§6Channel: §7" + channel : "")
+			);
+			Style style = new Style();
+			style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverString));
+			prefixText.setStyle(style);
+		}
 
 		// Username
 		LiteralText usernameText = new  LiteralText(" §e" + username);
