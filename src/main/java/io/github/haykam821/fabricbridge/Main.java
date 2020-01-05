@@ -17,19 +17,12 @@ import org.apache.http.impl.client.HttpClientBuilder;
 
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.LiteralText;
 
 import io.github.haykam821.fabricbridge.config.ModConfig;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
 
-class Message {
-	String username = "user";
-	String text = "[msg]";
-}
-
 public class Main implements ModInitializer {
-
 	@Override
 	public void onInitialize() {
 		AutoConfig.register(ModConfig.class, GsonConfigSerializer::new);
@@ -55,7 +48,7 @@ public class Main implements ModInitializer {
 
 					for (JsonElement item : array) {
 						Message message = gson.fromJson(item, Message.class);
-						MinecraftClient.getInstance().player.sendMessage(new LiteralText("§9§lDISCORD §e" + message.username + " §r§f" + message.text));
+						MinecraftClient.getInstance().player.sendMessage(message.getLiteralText());
 					}
 				} catch (Exception err) {
 					if (err instanceof HttpHostConnectException) return;
