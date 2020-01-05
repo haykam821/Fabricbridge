@@ -3,6 +3,7 @@ package io.github.haykam821.fabricbridge;
 import net.minecraft.client.MinecraftClient;
 
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.text.Text;
 import net.minecraft.text.Style;
 import net.minecraft.text.HoverEvent;
@@ -38,19 +39,39 @@ class Message {
 		this.channel = channel;
 	}
 
+	Text getHoverRow(String value, String lang, boolean first) {
+		// Prefix
+		LiteralText prefixText = new LiteralText(first ? "§6" : "\n§6");
+
+		// Key
+		TranslatableText keyText = new TranslatableText(lang);
+
+		// Value
+		LiteralText valueText = new LiteralText(" §7" + value);
+
+		// Merge three components together
+		LiteralText fullText = new LiteralText("");
+		return fullText.append(prefixText).append(keyText).append(valueText);
+	}
+
+	Text getHoverText() {
+		// Merge all rows together
+		LiteralText fullText = new LiteralText("");
+		return fullText
+			.append(getHoverRow(gateway, "fabricbridge.info.gateway", true))
+			.append(getHoverRow(protocol, "fabricbridge.info.protocol", false))
+			.append(getHoverRow(channel, "fabricbridge.info.channel", false));
+	}
+
 	Text getLiteralText() {
 		ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 	
 		// Prefix
 		LiteralText prefixText = new LiteralText("§9§lDISCORD");
 		if (config.hoverText) {
-			LiteralText hoverString = new LiteralText(
-				((gateway != null && gateway.length() > 0) ? "§6Gateway: §7" + gateway : "") +
-				((protocol != null && protocol.length() > 0) ? "\n§6Protocol: §7" + protocol : "") +
-				((channel != null && channel.length() > 0)? "\n§6Channel: §7" + channel : "")
-			);
+			Text hoverText = getHoverText();
 			Style style = new Style();
-			style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverString));
+			style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
 			prefixText.setStyle(style);
 		}
 

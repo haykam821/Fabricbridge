@@ -12,6 +12,8 @@
 	"text.autoconfig.fabricbridge.option.username.@Tooltip[1]": "Uses the in-game username if left blank.",
 	"text.autoconfig.fabricbridge.option.hoverText": "Show Hover Text",
 	"text.autoconfig.fabricbridge.option.hoverText.@Tooltip[0]": "Whether to show hover text.",
-	"text.autoconfig.fabricbridge.option.hoverText.@Tooltip[1]": "This includes gateway, protocol, and channel information."
-	
+	"text.autoconfig.fabricbridge.option.hoverText.@Tooltip[1]": "This includes gateway, protocol, and channel information.",
+	"fabricbridge.info.gateway": "Gateway:",
+	"fabricbridge.info.protocol": "Protocol:",
+	"fabricbridge.info.channel": "Channel:"
 }
