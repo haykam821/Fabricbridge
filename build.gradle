@@ -46,13 +46,13 @@ dependencies {
 	include("io.github.cottonmc:cotton-client-commands:0.4.2+1.14.3-SNAPSHOT")
 
 	// Configuration
-	modCompile("me.shedaniel.cloth:config-2:2.4-unstable.201911031154")
-	include("me.shedaniel.cloth:config-2:2.4-unstable.201911031154")
+	modCompile("me.shedaniel.cloth:config-2:2.5.1")
+	include("me.shedaniel.cloth:config-2:2.5.1")
 
 	modImplementation("me.sargunvohra.mcmods:autoconfig1u:1.2.4")
 	include("me.sargunvohra.mcmods:autoconfig1u:1.2.4")
 
-	modImplementation("io.github.prospector:modmenu:1.8.0+build.16")
+	modImplementation("io.github.prospector:modmenu:1.8.3+build.19")
 }
 
 processResources {
