@@ -46,8 +46,8 @@ dependencies {
 	include("io.github.cottonmc:cotton-client-commands:0.4.2+1.14.3-SNAPSHOT")
 
 	// Configuration
-	modCompile("me.shedaniel.cloth:config-2:2.5.1")
-	include("me.shedaniel.cloth:config-2:2.5.1")
+	modCompile("me.shedaniel.cloth:config-2:2.6.5")
+	include("me.shedaniel.cloth:config-2:2.6.5")
 
 	modImplementation("me.sargunvohra.mcmods:autoconfig1u:1.2.4")
 	include("me.sargunvohra.mcmods:autoconfig1u:1.2.4")
