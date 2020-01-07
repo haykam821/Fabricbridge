@@ -4,7 +4,7 @@
 	"version": "${version}",
 
 	"name": "Fabricbridge",
-	"description": "Matterbridge support for the Minecraft client via Fabric.",
+	"description": "Matterbridge support for the Minecraft client.",
 	"authors": [
 		"haykam821"
 	],
