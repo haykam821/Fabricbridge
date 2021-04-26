@@ -16,10 +16,6 @@ repositories {
 		url = "https://maven.fabricmc.net/"
 	}
 	maven {
-		name = "CottonMC"
-		url = "https://server.bbkr.space/artifactory/libs-release"
-	}
-	maven {
 		name = "Shedaniel"
 		url = "https://maven.shedaniel.me/"
 	}
@@ -37,10 +33,6 @@ dependencies {
 
 	// Fabric API
 	modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
-
-	// Client commands
-	modImplementation("io.github.cottonmc:cotton-client-commands:1.0.1+1.16-rc1")
-	include("io.github.cottonmc:cotton-client-commands:1.0.1+1.16-rc1")
 
 	// Configuration
 	modImplementation("me.shedaniel.cloth:cloth-config-fabric:4.11.19")

@@ -21,9 +21,6 @@
 		"main": [
 			"io.github.haykam821.fabricbridge.Main"
 		],
-		"cotton-client-commands": [
-			"io.github.haykam821.fabricbridge.Commands"
-		],
 		"modmenu": [
 			"io.github.haykam821.fabricbridge.config.ModMenuCompatibility"
 		]
