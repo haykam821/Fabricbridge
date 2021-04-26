@@ -1,7 +1,8 @@
 package io.github.haykam821.fabricbridge.config;
 
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.*;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
 
 @Config(name = "fabricbridge")
 @Config.Gui.Background("minecraft:textures/block/light_blue_wool.png")

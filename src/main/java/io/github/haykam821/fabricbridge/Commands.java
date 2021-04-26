@@ -2,15 +2,16 @@ package io.github.haykam821.fabricbridge;
 
 import java.util.concurrent.Executors;
 
-import io.github.cottonmc.clientcommands.*;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.text.TranslatableText;
-
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import io.github.cottonmc.clientcommands.ArgumentBuilders;
+import io.github.cottonmc.clientcommands.ClientCommandPlugin;
+import io.github.cottonmc.clientcommands.CottonClientCommandSource;
 import io.github.haykam821.fabricbridge.config.ModConfig;
+import me.shedaniel.autoconfig.AutoConfig;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.TranslatableText;
 
 public class Commands implements ClientCommandPlugin {
 	@Override

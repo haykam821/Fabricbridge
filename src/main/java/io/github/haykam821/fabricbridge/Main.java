@@ -15,12 +15,10 @@ import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-import net.fabricmc.api.ModInitializer;
-import net.minecraft.client.MinecraftClient;
-
 import io.github.haykam821.fabricbridge.config.ModConfig;
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
-import me.sargunvohra.mcmods.autoconfig1u.serializer.GsonConfigSerializer;
+import me.shedaniel.autoconfig.AutoConfig;
+import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
+import net.fabricmc.api.ModInitializer;
 
 public class Main implements ModInitializer {
 	@Override

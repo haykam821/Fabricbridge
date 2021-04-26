@@ -1,15 +1,8 @@
 package io.github.haykam821.fabricbridge;
 
-import net.minecraft.client.MinecraftClient;
-
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.text.Text;
-import net.minecraft.text.Style;
-import net.minecraft.text.HoverEvent;
-
 import java.io.IOException;
 import java.util.HashMap;
+
 import com.google.gson.Gson;
 
 import org.apache.http.HttpResponse;
@@ -21,17 +14,25 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 
-import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import io.github.haykam821.fabricbridge.config.ModConfig;
+import me.shedaniel.autoconfig.AutoConfig;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.text.HoverEvent;
+import net.minecraft.text.LiteralText;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 
-class Message {
-	String username;
-	String text;
-	String protocol;
-	String gateway;
-	String channel;
+public class Message {
+	private static final MinecraftClient CLIENT = MinecraftClient.getInstance();
 
-	Message(String username, String text, String gateway, String protocol, String channel) {
+	private String username;
+	private String text;
+	private String protocol;
+	private String gateway;
+	private String channel;
+
+	public Message(String username, String text, String gateway, String protocol, String channel) {
 		this.username = username;
 		this.text = text;
 		this.protocol = protocol;
@@ -39,7 +40,7 @@ class Message {
 		this.channel = channel;
 	}
 
-	Text getHoverRow(String value, String lang, boolean first) {
+	public Text getHoverRow(String value, String lang, boolean first) {
 		// Prefix
 		LiteralText prefixText = new LiteralText(first ? "§6" : "\n§6");
 
@@ -54,7 +55,7 @@ class Message {
 		return fullText.append(prefixText).append(keyText).append(valueText);
 	}
 
-	Text getHoverText() {
+	public Text getHoverText() {
 		// Merge all rows together
 		LiteralText fullText = new LiteralText("");
 		return fullText
@@ -63,20 +64,20 @@ class Message {
 			.append(getHoverRow(channel, "fabricbridge.info.channel", false));
 	}
 
-	Text getLiteralText() {
+	public Text getLiteralText() {
 		ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 	
 		// Prefix
-		LiteralText prefixText = new LiteralText("§9§lDISCORD");
+		MutableText prefixText = new LiteralText("§9§lDISCORD");
 		if (config.hoverText) {
-			Text hoverText = getHoverText();
-			Style style = new Style();
-			style.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
-			prefixText.setStyle(style);
+			prefixText = prefixText.styled(style -> {
+				Text hoverText = this.getHoverText();
+				return style.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
+			});
 		}
 
 		// Username
-		LiteralText usernameText = new  LiteralText(" §e" + username);
+		LiteralText usernameText = new LiteralText(" §e" + username);
 
 		// Text
 		LiteralText textText = new LiteralText(" §r§f" + text);
@@ -86,11 +87,11 @@ class Message {
 		return fullText.append(prefixText).append(usernameText).append(textText);
 	}
 
-	void sendLiteralText() {
-		MinecraftClient.getInstance().player.sendMessage(this.getLiteralText());
+	public void sendLiteralText() {
+		CLIENT.player.sendMessage(this.getLiteralText(), false);
 	}
 
-	HttpResponse send() throws ClientProtocolException, IOException {
+	public HttpResponse send() throws ClientProtocolException, IOException {
 		ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
 
 		Gson gson = new Gson();
